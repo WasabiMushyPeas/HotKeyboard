@@ -22,4 +22,4 @@ Ctrl|Alt|Delete #This will be bound to the 3rd key and Ctrl|h the 2nd key and cm
 ```
 > :warning: **Make sure you delete all the comments in [keyBoardShortcuts.txt](https://github.com/WasabiMushyPeas/HotKeyboard/blob/main/keyBoardShortcuts.txt) can not have comments**
 # Other
-if you need to excute commands on linux check out [the awesomewm fork](https://github.com/WasabiMushyPeas/HotKeyboard/tree/awesomewm)
+if you need to excute commands on linux check out [the awesomewm branch](https://github.com/WasabiMushyPeas/HotKeyboard/tree/awesomewm)
