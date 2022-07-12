@@ -20,6 +20,6 @@ Ctrl|h #this the command Ctrl+h | separates the key presses
 Ctrl|Alt|Delete #This will be bound to the 3rd key and Ctrl|h the 2nd key and cmd|g the 1st key you can put up to 27. 
 #The first key is the top left going from left to right then up to down.
 ```
-> :warning: **Make sure you delete all the comments the [keyBoardShortcuts.txt](https://github.com/WasabiMushyPeas/HotKeyboard/blob/main/keyBoardShortcuts.txt) can not have comments**
+> :warning: **Make sure you delete all the comments in [keyBoardShortcuts.txt](https://github.com/WasabiMushyPeas/HotKeyboard/blob/main/keyBoardShortcuts.txt) can not have comments**
 # Other
 if you need to excute commands on linux check out [the awesomewm fork](https://github.com/WasabiMushyPeas/HotKeyboard/tree/awesomewm)
