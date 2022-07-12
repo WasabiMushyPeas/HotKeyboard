@@ -1,6 +1,5 @@
-
-
 const int BlueLEDbulitIn = 24;
+const int RedLEDbulitIn = 22;
 const int dipSwitch4 = A0;
 const int dipSwitch3 = A1; 
 const int dipSwitch2 = A2; 
@@ -27,6 +26,23 @@ boolean canPressKey7 = true;
 boolean canPressKey8 = true;
 boolean canPressKey9 = true;
 
+boolean dipSW4 = false;
+boolean dipSW3 = false;
+boolean dipSW2 = false;
+boolean dipSW1 = false;
+
+int addOn = 0;
+
+const int sw1Num = 1;
+const int sw2Num = 2;
+const int sw3Num = 3;
+const int sw4Num = 4;
+const int sw5Num = 5;
+const int sw6Num = 6;
+const int sw7Num = 7;
+const int sw8Num = 8;
+const int sw9Num = 9;
+
 void setup()
 {
   pinMode(dipSwitch4, INPUT);
@@ -37,6 +53,8 @@ void setup()
 
   pinMode(sw20, INPUT);
 
+  Serial.print("Starting up arduino nano 33 BLE with the hot key program\n");
+
 }
 
 void loop()
@@ -44,31 +62,56 @@ void loop()
   if(digitalRead(dipSwitch4) == HIGH)  
   {
     digitalWrite(mode2, HIGH);
+    dipSW4 = true;
+    addOn = 0;
   }
   else{
     digitalWrite(mode2, LOW);
+    dipSW4 = false;
   }
   
   if(digitalRead(dipSwitch3) == HIGH)  
   {
     digitalWrite(mode1, HIGH);
+    dipSW3 = true;
+    addOn = 9;
   }
-  else digitalWrite(mode1, LOW);
+  else {
+    dipSW3 = false;
+    digitalWrite(mode1, LOW);
+  }
   
   if(digitalRead(dipSwitch2) == HIGH)  
   {
+    dipSW2 = true;
     digitalWrite(mode1, HIGH);
     digitalWrite(mode2, HIGH);
+    addOn = 18;
   }
   else{
+    dipSW2 = false;
     digitalWrite(mode1, LOW);
     digitalWrite(mode2, LOW);
   }
 
+  if(digitalRead(dipSwitch1) == HIGH)  
+  {
+    dipSW1 = true;
+    digitalWrite(RedLEDbulitIn, HIGH);
+  }
+  else{
+    dipSW1 = false;
+    digitalWrite(RedLEDbulitIn, LOW);
+  }
+
+  if(!dipSW1){
+    
+ 
   if(digitalRead(sw20) == LOW){
     digitalWrite(BlueLEDbulitIn, LOW);
     if(canPressKey1){
-      Serial.print("1\n");
+      Serial.print(sw1Num + addOn);
+      Serial.print("\n");
       canPressKey1 = false;
     }
   }else{
@@ -80,7 +123,8 @@ void loop()
   if(digitalRead(sw18) == LOW){
     digitalWrite(BlueLEDbulitIn, LOW);
     if(canPressKey2){
-      Serial.print("2\n");
+      Serial.print(sw2Num + addOn);
+      Serial.print("\n");
       canPressKey2 = false;
     }
   }else{
@@ -92,7 +136,8 @@ void loop()
   if(digitalRead(sw19) == LOW){
     digitalWrite(BlueLEDbulitIn, LOW);
     if(canPressKey3){
-      Serial.print("3\n");
+      Serial.print(sw3Num + addOn);
+      Serial.print("\n");
       canPressKey3 = false;
     }
   }else{
@@ -104,7 +149,8 @@ void loop()
   if(digitalRead(sw12) == LOW){
     digitalWrite(BlueLEDbulitIn, LOW);
     if(canPressKey4){
-      Serial.print("4\n");
+      Serial.print(sw4Num + addOn);
+      Serial.print("\n");
       canPressKey4 = false;
     }
   }else{
@@ -116,7 +162,8 @@ void loop()
   if(digitalRead(sw13) == LOW){
     digitalWrite(BlueLEDbulitIn, LOW);
     if(canPressKey5){
-      Serial.print("5\n");
+      Serial.print(sw5Num + addOn);
+      Serial.print("\n");
       canPressKey5 = false;
     }
   }else{
@@ -128,7 +175,8 @@ void loop()
   if(digitalRead(sw14) == LOW){
     digitalWrite(BlueLEDbulitIn, LOW);
     if(canPressKey6){
-      Serial.print("6\n");
+      Serial.print(sw6Num + addOn);
+      Serial.print("\n");
       canPressKey6 = false;
     }
   }else{
@@ -140,7 +188,8 @@ void loop()
   if(digitalRead(sw4) == LOW){
     digitalWrite(BlueLEDbulitIn, LOW);
     if(canPressKey7){
-      Serial.print("7\n");
+      Serial.print(sw7Num + addOn);
+      Serial.print("\n");
       canPressKey7 = false;
     }
   }else{
@@ -152,7 +201,8 @@ void loop()
   if(digitalRead(sw5) == LOW){
     digitalWrite(BlueLEDbulitIn, LOW);
     if(canPressKey8){
-      Serial.print("8\n");
+      Serial.print(sw8Num + addOn);
+      Serial.print("\n");
       canPressKey8 = false;
     }
   }else{
@@ -164,7 +214,8 @@ void loop()
   if(digitalRead(sw6) == LOW){
     digitalWrite(BlueLEDbulitIn, LOW);
     if(canPressKey9){
-      Serial.print("9\n");
+      Serial.print(sw9Num + addOn);
+      Serial.print("\n");
       canPressKey9 = false;
     }
   }else{
@@ -172,6 +223,8 @@ void loop()
    if(!canPressKey9){
     canPressKey9 = true;
    }
+  }
+  
   }
   
 }
