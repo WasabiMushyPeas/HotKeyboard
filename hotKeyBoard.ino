@@ -53,6 +53,8 @@ void setup()
 
   pinMode(sw20, INPUT);
 
+  Serial.begin(9600);
+  delay(3000);
   Serial.print("Starting up arduino nano 33 BLE with the hot key program\n");
 
 }
@@ -70,38 +72,38 @@ void loop()
     dipSW4 = false;
   }
   
-  if(digitalRead(dipSwitch3) == HIGH)  
+  if(digitalRead(dipSwitch3) == LOW)  
   {
-    digitalWrite(mode1, HIGH);
+    digitalWrite(mode1, LOW);
     dipSW3 = true;
     addOn = 9;
   }
   else {
     dipSW3 = false;
-    digitalWrite(mode1, LOW);
+    digitalWrite(mode1, HIGH);
   }
   
-  if(digitalRead(dipSwitch2) == HIGH)  
+  if(digitalRead(dipSwitch2) == LOW)  
   {
     dipSW2 = true;
-    digitalWrite(mode1, HIGH);
-    digitalWrite(mode2, HIGH);
+    digitalWrite(mode1, LOW);
+    digitalWrite(mode2, LOW);
     addOn = 18;
   }
   else{
     dipSW2 = false;
-    digitalWrite(mode1, LOW);
-    digitalWrite(mode2, LOW);
+    digitalWrite(mode1, HIGH);
+    digitalWrite(mode2, HIGH);
   }
 
-  if(digitalRead(dipSwitch1) == HIGH)  
+  if(digitalRead(dipSwitch1) == LOW)  
   {
     dipSW1 = true;
-    digitalWrite(RedLEDbulitIn, HIGH);
+    digitalWrite(RedLEDbulitIn, LOW);
   }
   else{
     dipSW1 = false;
-    digitalWrite(RedLEDbulitIn, LOW);
+    digitalWrite(RedLEDbulitIn, HIGH);
   }
 
   if(!dipSW1){
