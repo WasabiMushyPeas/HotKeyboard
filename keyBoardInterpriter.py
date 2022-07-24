@@ -11,8 +11,11 @@ keyBoardSCfile.close()
 
 ser = serial.Serial('/dev/ttyACM0')
 
-if(str(ser.readline()) != "Starting up arduino nano 33 BLE with the hot key program\n"):
+if(ser.isOpen()):
     ser = serial.Serial('/dev/ttyACM1')
+    print("Using: ACM1")
+else:
+    print("Using: ACM0")
 
 while True:
     keyNum = ser.readline()
@@ -80,4 +83,6 @@ while True:
         if(int(keyNum) == 1):
             os.system("kitty &")
         if(int(keyNum) == 2):
-            os.system("xkill &")
+            os.system("xdotool getwindowfocus windowkill")
+        if(int(keyNum) == 3):
+            os.system("firefox")
