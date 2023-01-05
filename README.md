@@ -1,5 +1,5 @@
 # HotKey board
-This is a simple Arduino project that allows none HID Arduino boards to simulate key presses through a serial monitor on python which than simulates the key presses
+This is a simple Arduino project that allows Arduino boards that don't support Arduino's HID library to simulate key presses through a serial monitor accessed by python which than simulates the key presses. This repo also includes a PCB that connects 9 keyboard switches status LEDs and a DIP switch.
 # Installation
 - Download this git repo
 - upload the [hotKeyBoard.ino](https://github.com/WasabiMushyPeas/HotKeyboard/blob/main/hotKeyBoard.ino) to your Arduino through the [Arduino IDE](https://www.arduino.cc/en/software)
